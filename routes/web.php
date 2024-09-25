@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThemeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ Route::get('/blog', 'blog')->name('blog');
 Route::get('/category', 'category')->name('category');
 Route::get('/contact', 'contact')->name('contact');
 });
+Route::post('/subscribe', [SubscriberController::class, 'store'])->name('store.subscriber');
 
 
 
