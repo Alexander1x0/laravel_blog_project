@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThemeController;
@@ -23,7 +24,9 @@ Route::get('/blog', 'blog')->name('blog');
 Route::get('/category', 'category')->name('category');
 Route::get('/contact', 'contact')->name('contact');
 });
-Route::post('/subscribe', [SubscriberController::class, 'store'])->name('store.subscriber');
+Route::post('/subscribe/store', [SubscriberController::class, 'store'])->name('store.subscriber');
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('store.contact');
 
 
 
