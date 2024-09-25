@@ -21,8 +21,6 @@ Route::get('/', 'index')->name('index');
 Route::get('/blog', 'blog')->name('blog');
 Route::get('/category', 'category')->name('category');
 Route::get('/contact', 'contact')->name('contact');
-Route::get('/login', 'login')->name('login');
-Route::get('/register', 'register')->name('register');
 });
 
 
