@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
@@ -20,15 +21,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(ThemeController::class)->name('theme.')->group(function () {
 Route::get('/', 'index')->name('index');
-Route::get('/blog', 'blog')->name('blog');
-Route::get('/category', 'category')->name('category');
+Route::get('/category/{id}', 'category')->name('category');
 Route::get('/contact', 'contact')->name('contact');
 });
 Route::post('/subscribe/store', [SubscriberController::class, 'store'])->name('store.subscriber');
 
 Route::post('/contact/store', [ContactController::class, 'store'])->name('store.contact');
 
-
+Route::get('/my-blogs', [BlogController::class, 'myBlogs'])->name('blogs.my-blogs');
+Route::resource('blogs', BlogController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
